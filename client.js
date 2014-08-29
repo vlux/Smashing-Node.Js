@@ -9,7 +9,7 @@ function send(Name){
         host : '127.0.0.1',
         port : 3000,
         url : '/',
-        method : 'POST'
+        method : 'POST'        //注意是POST不是GET
     },function(res){
         res.setEncoding('utf8');
         res.on('end',function(){
@@ -17,6 +17,7 @@ function send(Name){
             process.stdout.write('\n ur name: ');
         });
     }).end(qs.stringify({ name : Name }));        //qs.stringify可以将一个对象转化为url编码过的数据
+        //当end事件触发，就可以将完整的请求数据打印出来，然后接着要求用户再次输入数据即可
 }
 
 process.stdout.write('\n ur name: ');
