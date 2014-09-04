@@ -23,3 +23,15 @@ require('http').createServer(function(req,res){
     res.writeHead(200,{'Content-Type':'image/png'});
     require('fs').createReadStream('image.png').pipe(res);
 }).listen(3000);
+
+
+//    require('fs').createReadStream('image.png').pipe(res);
+//相当于
+
+    // fs.createReadStream(path)
+    //     .on('data',function(data){
+    //         res.write(data);
+    //     });
+    //     .on('end',function(){
+    //         res.end();
+    //     });
