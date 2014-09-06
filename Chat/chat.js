@@ -1,6 +1,9 @@
 //P187
 
-window.onload = function(){
+//绝大部分的功能都在客户端实现：编写代码来根据不同的消息类型进行相应的界面展现
+
+
+window.onload = function(){        //所有socket.io客户端代码暴露出来的方法和类都在io命名空间中
     var socket = io.connect();
     socket.on('connect',function(){
         //通过join事件发送昵称
@@ -50,7 +53,7 @@ window.onload = function(){
         playing.appendChild(iframe);
     }
 
-    socket.on('song',play);
+    socket.on('song',play);        //将play函数作为回调函数传递给song事件
 
     //查询表单
     var form = document.getElementById('dj');
@@ -82,5 +85,5 @@ window.onload = function(){
     socket.on('elected',function(){
         form.className = 'isDJ';
     });
-    
+
 }
